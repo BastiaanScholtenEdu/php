@@ -5,7 +5,7 @@
   $output = null;
   $divided = "";
 
-  if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["numerator"], $_GET["denominator"]) && $_GET["numerator"] !== "" && $_GET["denominator"] !== "") {
+  if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["numerator"], $_GET["denominator"]) && $_GET["numerator"] !== "" && $_GET["denominator"] !== "" && $_GET["numerator"] != 0 && $_GET["denominator"] != 0 ) {
     $numerator = intval($_GET["numerator"]);
     $denominator = intval($_GET["denominator"]);
     $result = $numerator % $denominator;
