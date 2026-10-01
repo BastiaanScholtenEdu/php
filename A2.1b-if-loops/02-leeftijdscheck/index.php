@@ -18,7 +18,7 @@
       <input id="date-id" type="date" name="date-select" value="<?php echo $todayStr; ?>" ><br>
       <input type="submit">
     </form>
-    <?php if (!mpty(years)): ?>
+    <?php if (!empty($years)): ?>
       <?php echo "<p>U bent $years jaar oud.</p>"?>
     <?php endif; ?>
   </body>
