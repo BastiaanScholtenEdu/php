@@ -4,7 +4,7 @@
   $programmeertalen = ["PHP", "C#", "HTML", "Javascript", "Java", "C++", "C"];
   array_push($programmeertalen, "Python", "Swift");
 
-  
+  sort($programmeertalen);
   foreach($programmeertalen as $value) {
     $ren .= $value. "<br>";
   }
