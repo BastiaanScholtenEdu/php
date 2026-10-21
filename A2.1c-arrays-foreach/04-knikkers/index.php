@@ -24,7 +24,7 @@
     <h2>Bereken hoeveel knikkers in de zak overblijven</h2>
     <p>Er zijn 10 knikkers in de zak.</p>
     <form action="" method="POST">
-      <input name="amount" placeholder="Aantal knikkers" type="number" min="0" max="10">
+      <input name="amount" placeholder="Aantal knikkers" type="number" min="0" max="10" style="width: 110px;">
       <input name="submit" type="submit" value="Gooi knikkers">
     </form>
     <br>
