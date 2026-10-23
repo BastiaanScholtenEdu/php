@@ -1,43 +1,41 @@
 <?php
   $ren = "";
+  $total = 0.0;
   $extraSelected = [];
 
+  $pizzaPrices = array(
+      "spianata-piccante" => 12.5,
+      "seppi" => 11.5,
+      "tirato" => 10.5,
+    );
+
+  $extraPrices = array(
+    "olives" => 2.5,
+    "cheese" => 1.5,
+    "deliver" => 3.5
+  );
+
   if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["pizza"])) {
-    $total = 0;
-    $pizzaSelected = $_POST["pizza"];
-    if (isset($_POST["extra"])) {
-      $extraSelected = $_POST["extra"];
-    }
-    
-    
-    foreach($pizzaSelected as $selectedPizza) {
-      switch ($selectedPizza) {
-        case "spianata-piccante":
-          $total += 12.50;
-          break;
-        case "seppi":
-          $total += 11.50;
-          break;
-        case "tirato":
-          $total += 10.50;
-          break;
+
+    if (is_array($_POST["pizza"])) {
+      foreach($_POST["pizza"] as $selected) {
+        if (isset($pizzaPrices[$selected])) {
+          $total += $pizzaPrices[$selected];
+        }
       }
     }
 
-    foreach($extraSelected as $selectedExtra)
-    switch ($selectedExtra) {
-      case "olives":
-        $total += 2.50;
-        break;
-      case "cheese":
-        $total += 1.50;
-        break;
-      case "deliver":
-        $total += 3.50;
-        break;
+    if (!empty($_POST["extra"]) && is_array($_POST["extra"])) {
+      foreach($_POST["extra"] as $selected) {
+        if (isset($extraPrices[$selected])) {
+          $total += $extraPrices[$selected];
+        }
+      }
     }
-    
-    $ren = "Het totaal bedrag is: €$total"; 
+    $total = number_format($total, 2);
+    $ren = "<p>Het totaal bedrag is: €$total</p>"; 
+  } else {
+    $ren = "<p>Maak een keuze.</p>";
   }
 ?>
 
