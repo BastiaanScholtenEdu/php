@@ -9,18 +9,18 @@
     // Result
     $ren .= "
       <h3>Resultaat</h3>\n
-      <p><b>Ingevoerde tekst: </b>$input</p>
+      <p><b>Ingevoerde tekst: </b>". htmlspecialchars($input). "</p>
     ";
 
     if ($_POST["submit"] === "Encrypt") {
       $ren .= "
-        <p><b>Versleutelde tekst: </b>$output</p>\n
-        <p><b>Veranderde karakters: </b>$steps</p>
+        <p><b>Versleutelde tekst: </b>". htmlspecialchars($output). "</p>\n
+        <p><b>Veranderde karakters: </b>". htmlspecialchars($steps). "</p>
       ";
     } elseif ($_POST["submit"] === "Decrypt") {
       $ren .= "
-        <p><b>Onversleutelde tekst: </b>$output</p>\n
-        <p><b>Veranderde karakters: </b>$steps</p>
+        <p><b>Onversleutelde tekst: </b>". htmlspecialchars($output). "</p>\n
+        <p><b>Veranderde karakters: </b>". htmlspecialchars($steps). "</p>
       ";
     }
 
